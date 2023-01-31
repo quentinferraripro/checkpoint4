@@ -37,70 +37,68 @@ function SignUp() {
   };
 
   return (
-    <form
-      onSubmit={handleForm}
-      style={{ width: "18rem" }}
-      className="m-auto mt-5"
-    >
-      <div className="mb-3">
-        <label htmlFor="firstname" className="form-label">
-          First Name
-        </label>
-        <input
-          onChange={(e) => setFirstname(e.target.value)}
-          type="firstname"
-          className="form-control"
-          id="firstname"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="lastname" className="form-label">
-          Lastname
-        </label>
-        <input
-          onChange={(e) => setLastname(e.target.value)}
-          type="lastname"
-          className="form-control"
-          id="lastname"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="city" className="form-label">
-          City
-        </label>
-        <input
-          onChange={(e) => setCity(e.target.value)}
-          type="city"
-          className="form-control"
-          id="city"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Email
-        </label>
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          className="form-control"
-          id="email"
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="password" className="form-label">
-          Password
-        </label>
-        <input
-          onChange={(e) => setPassword(e.target.value)}
-          type="password"
-          className="form-control"
-          id="password"
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Inscription
-      </button>
-    </form>
+    <div className="flex flex-col items-center justify-center h-screen">
+      <form onSubmit={handleForm} className="m-auto mt-5">
+        <div className="mb-3">
+          <label htmlFor="firstname" className="form-label">
+            First Name
+          </label>
+          <input
+            onChange={(e) => setFirstname(e.target.value)}
+            type="firstname"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            id="firstname"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="lastname" className="form-label">
+            Lastname
+          </label>
+          <input
+            onChange={(e) => setLastname(e.target.value)}
+            type="lastname"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            id="lastname"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="city" className="form-label">
+            City
+          </label>
+          <input
+            onChange={(e) => setCity(e.target.value)}
+            type="city"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            id="city"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email
+          </label>
+          <input
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            id="email"
+          />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            onChange={(e) => setPassword(e.target.value)}
+            type="password"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            id="password"
+          />
+        </div>
+        <button type="submit" className="border-2 border-black bg-blue-400">
+          Inscription
+        </button>
+      </form>
+    </div>
   );
 }
 
