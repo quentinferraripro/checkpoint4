@@ -7,7 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Articles from "./pages/Articles";
-import Avatar from "./pages/Avatar";
+
 import ArticleManagement from "./pages/ArticleManagement";
 
 import { CurrentUserContextProvider } from "./contexts/userContext";
@@ -22,7 +22,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/articles" element={<Articles />} />
-          <Route path="/avatar" element={<Avatar />} />
+
           <Route path="/management" element={<ArticleManagement />} />
         </Routes>
       </CurrentUserContextProvider>

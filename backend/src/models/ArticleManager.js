@@ -8,7 +8,7 @@ class ArticleManager extends AbstractManager {
   insert(article) {
     return this.connection.query(
       `INSERT INTO ${this.table} (title, content, picture, user_id)
-    VALUES(?,?,?)`,
+    VALUES(?,?,?,?)`,
       [article.title, article.content, article.picture, article.user_id]
     );
   }

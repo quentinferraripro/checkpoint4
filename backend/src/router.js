@@ -27,7 +27,7 @@ router.post(
 // Gestion des articles
 router.get("/api/articles", articleControllers.browse);
 router.get("/api/articles/:id", articleControllers.read);
-router.post("/api/articles", verifyToken, articleControllers.add);
+router.post("/api/articles",  verifyToken, articleControllers.add);
 router.put("/api/articles/:id", verifyToken, articleControllers.edit);
 router.delete("/api/articles/:id", verifyToken, articleControllers.destroy);
 
