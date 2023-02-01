@@ -66,13 +66,13 @@ CREATE TABLE article (
   id int(11) UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
   title varchar(255) NOT NULL,
   content varchar(255) NOT NULL,
-  picture varchar(255) NOT NULL,
+  picture varchar(255) DEFAULT NULL,
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO article (title, content, picture, user_id) VALUES ('chat', 'boule de poils maléfique', './src/media/cat.jpg', 1),
-('Chien', 'Mon autre super contenu', './src/media/puppy.jpg', 2);
+INSERT INTO article (title, content, picture, user_id) VALUES ('chat', 'boule de poils maléfique', 'src/media/cat.jpg', 1),
+('Chien', 'Mon autre super contenu', 'src/media/puppy.jpg', 2);
 
 
 /* On reactive la verification des clés étrangères*/

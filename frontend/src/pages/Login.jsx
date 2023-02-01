@@ -9,7 +9,10 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
-
+  const routeChange = () => {
+    const path = `/signup`;
+    navigate(path);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     const myHeaders = new Headers();
@@ -33,7 +36,7 @@ function Login() {
         .then((result) => {
           setUser(result.user);
           setToken(result.token);
-          navigate("/");
+          navigate("/articles");
         })
         .catch(console.error);
     } else {
@@ -45,7 +48,7 @@ function Login() {
     <div className="flex flex-col justify-center items-center h-screen">
       <h1>Rejoins-nous pour haïr ensemble les alergènes.</h1>
       <div>
-        <button type="button" className="bg-blue-500">
+        <button type="button" className="bg-blue-500" onClick={routeChange}>
           s'incrire
         </button>
       </div>
