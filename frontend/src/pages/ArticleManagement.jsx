@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useCurrentUserContext } from "../contexts/userContext";
+
 import UploadImage from "../components/UploadImage";
 
 function ArticleManagement() {
@@ -45,28 +47,11 @@ function ArticleManagement() {
       .catch(console.error);
   };
 
-  // Pour le delete des articles
-  const [id, setId] = useState();
-
-  const handleDeleteTutorial = async () => {
-    fetch(`http://localhost:5000/api/articles/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        if (data.error) {
-          console.warn("error");
-        }
-      });
-  };
   return (
     <div className="flex flex-col h-screen items-center w-full">
-      <h1 className="text-3xl mb-10">Gestion des Articles</h1>
-      <h2 className="text-xl">Création d'article</h2>
+      <h1 className="text-3xl mb-10 mt-5">Gestion des Articles</h1>
+      <h2 className="text-xl mb-3">Création d'article</h2>
+
       <form
         className="mb-10 w-full flex flex-col items-center"
         onSubmit={handleForm}
@@ -91,27 +76,32 @@ function ArticleManagement() {
           className="border-2 border-black rounded-xl mb-3 h-24 w-1/2"
         />
 
-        <button type="submit" className="bg-red-500">
+        <button type="submit" className="bg-slate-400 rounded-xl w-16">
           valider
         </button>
       </form>
       <UploadImage />
-      <h1 className="text-xl">suppression d'articles</h1>
       <div>
-        <h1 className="text-center my-3 text-xl">Articles</h1>
+        <h1 className="text-center my-3 text-xl md:text-2xl">Articles</h1>
         <div className="d-flex flex-wrap justify-content-center">
           {articles.map((article) => (
-            <div key={article.id}>
-              <h1>{article.title}</h1>
-              <button
-                type="button"
-                onClick={() => {
-                  setId(article.id);
-                  handleDeleteTutorial();
-                }}
+            <div
+              className="flex flex-col justify-center items-center mb-5 bg-slate-200"
+              key={article.id}
+            >
+              <h1 className="text-xl">{article.title}</h1>
+              <Link
+                to={`/articles/${article.id}/modify`}
+                className=" mb-1 bg-slate-400 rounded-xl"
+              >
+                modifier
+              </Link>
+              <Link
+                to={`/articles/${article.id}/delete`}
+                className="bg-slate-400 rounded-xl"
               >
                 supprimer
-              </button>
+              </Link>
             </div>
           ))}
         </div>

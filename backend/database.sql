@@ -10,11 +10,11 @@ CREATE TABLE user (
     city varchar(255) DEFAULT NULL,
     language varchar(255) DEFAULT NULL,
     hashedPassword varchar(255) NOT NULL,
-    avatar varchar(255) DEFAULT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = utf8;
+   isAdmin tinyint(1) NOT NULL DEFAULT 0
+); 
 
 INSERT INTO
-  user (firstname, lastname, email, city, language, hashedPassword)
+  user (firstname, lastname, email, city, language, hashedPassword, isAdmin)
 VALUES
   (
     'John',
@@ -22,14 +22,24 @@ VALUES
     'john.doe@example.com',
     'Paris',
     'English',
-    "$argon2id$v=19$m=16,t=2,p=1$emVmZXpmemZlemVmZWR6ZXplZg$rqZkhxu5YbqCGHPNrjJZpQ"
+    "$argon2id$v=19$m=16,t=2,p=1$emVmZXpmemZlemVmZWR6ZXplZg$rqZkhxu5YbqCGHPNrjJZpQ",
+    0
   ),(
     'Valeriy',
     'Appius',
     'valeriy.ppius@example.com',
     'Moscow',
     'Russian',
-    '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZQ$eSetR6KPUNAGW+q+wDadcw'
+    '$argon2id$v=19$m=16,t=2,p=1$emVmemVmemZlemZ6ZnpmZQ$eSetR6KPUNAGW+q+wDadcw',
+    0
+  ),(
+    'Quentin',
+    'Ferrari',
+    'quentin.ferrarijunk@gmail.com',
+    'Lyon',
+    'English',
+    "$argon2id$v=19$m=65536,t=5,p=1$qVvMZrFDu7MK6q1EfMLP9A$MlFGaQAXzsxGW4Vx+h61X4YNCIbMixiYodGXXnqy1tE",
+    1
   );
 
 

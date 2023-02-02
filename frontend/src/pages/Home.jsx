@@ -9,7 +9,7 @@ function Home() {
   };
   return (
     <div className="flex flex-col justify-center items-center h-screen">
-      <h1 className="text-8xl">Toujours sans</h1>
+      <h1 className="text-8xl pb-10">Toujours sans</h1>
       <h2 className="text-4xl mb-4">
         Des voies débouchées pour une vie apaisée
       </h2>

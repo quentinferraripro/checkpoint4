@@ -46,7 +46,7 @@ function SignUp() {
           <input
             onChange={(e) => setFirstname(e.target.value)}
             type="firstname"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
             id="firstname"
           />
         </div>
@@ -57,7 +57,7 @@ function SignUp() {
           <input
             onChange={(e) => setLastname(e.target.value)}
             type="lastname"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
             id="lastname"
           />
         </div>
@@ -68,7 +68,7 @@ function SignUp() {
           <input
             onChange={(e) => setCity(e.target.value)}
             type="city"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
             id="city"
           />
         </div>
@@ -79,7 +79,7 @@ function SignUp() {
           <input
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
             id="email"
           />
         </div>
@@ -90,11 +90,14 @@ function SignUp() {
           <input
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
             id="password"
           />
         </div>
-        <button type="submit" className="border-2 border-black bg-blue-400">
+        <button
+          type="submit"
+          className="bg-blue-500 text-lg md:text-xl w-28 rounded-xl"
+        >
           Inscription
         </button>
       </form>

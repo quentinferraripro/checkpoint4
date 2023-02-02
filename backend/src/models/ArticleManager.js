@@ -15,9 +15,9 @@ class ArticleManager extends AbstractManager {
 
   update(article) {
     return this.connection.query(
-      `UPDATE ${this.table} SET title = ?, content = ?, picture = ?,
-      user_id = ? WHERE id = ? `,
-      [article.title, article.content, article.picture, article.user_id, article.id]
+      `UPDATE ${this.table} SET title = ?, content = ?
+       WHERE id = ? `,
+      [article.title, article.content, article.id]
     );
   }
 }
