@@ -25,9 +25,9 @@ router.post(
 );
 
 // Gestion des articles
-router.get("/api/articles", verifyToken, articleControllers.browse);
+router.get("/api/articles", articleControllers.browse);
 router.get("/api/articles/:id", articleControllers.read);
-router.post("/api/articles", verifyToken, articleControllers.add);
+router.post("/api/articles",  verifyToken, articleControllers.add);
 router.put("/api/articles/:id", verifyToken, articleControllers.edit);
 router.delete("/api/articles/:id", verifyToken, articleControllers.destroy);
 
@@ -35,7 +35,7 @@ router.delete("/api/articles/:id", verifyToken, articleControllers.destroy);
 router.get("/api/users", userControllers.browse);
 router.get("/api/users/:id", userControllers.read);
 router.post("/api/users", hashPassword, verifyToken, userControllers.add);
-router.put("/api/users/:id", hashPassword, verifyToken, userControllers.edit);
+router.put("/api/users/:id", userControllers.edit);
 router.delete("/api/users/:id", verifyToken, userControllers.destroy);
 
 // Gestion des avatars
@@ -44,8 +44,10 @@ router.post(
   verifyToken,
   upload.single("avatar"),
   fileControllers.renameAvatar,
-  userControllers.updateAvatar
+  userControllers.updateAvatar,
+// route protégée
+  router.use(verifyToken),
+  router.put("/api/users/:id", userControllers.edit)
 );
-router.get("/api/avatars/:fileName", fileControllers.sendAvatar);
 
 module.exports = router;

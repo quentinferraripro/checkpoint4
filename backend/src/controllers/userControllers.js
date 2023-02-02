@@ -47,11 +47,13 @@ const edit = (req, res) => {
   const user = req.body;
   user.id = req.params.id;
 
-  models.user
-    .update(user)
+  models.user.update(user)
     .then(([result]) => {
-      if (result.affectedRows === 0) res.sendStatus(404);
-      else res.sendStatus(204);
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
     })
     .catch((error) => {
       console.error(error);

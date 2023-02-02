@@ -28,11 +28,18 @@ function Articles() {
 
   return (
     <div>
-      <h1 className="text-center my-3">Articles</h1>
-      <div className="d-flex flex-wrap justify-content-center">
+      <div className="flex justify-between h-80">
+        <img src="./src/media/dolipranne.png" alt="pub1" />
+        <img src="./src/media/goutte.png" alt="pub2" />
+      </div>
+      <div className="flex flex-col items-center">
         {articles.map((article) => (
           <Article key={article.id} article={article} />
         ))}
+      </div>
+      <div className="flex justify-between">
+        <img src="./src/media/oxygen.png" alt="pub3" />
+        <img src="./src/media/antihistaminique.png" alt="pub4" />
       </div>
     </div>
   );
