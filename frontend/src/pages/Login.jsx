@@ -47,8 +47,8 @@ function Login() {
 
   return (
     <div className="flex flex-col justify-center items-center h-75vh">
-      <h2 className="text-lg md:text-xl mt-24">
-        Déjà des notres? Connecte toi pour lire nos derniers articles
+      <h2 className="text-lg md:text-xl mt-24 text-center mb-4">
+        Déjà des nôtres? Connecte-toi pour lire nos derniers articles
       </h2>
       <form
         onSubmit={handleSubmit}
@@ -70,7 +70,7 @@ function Login() {
             htmlFor="password"
             className="form-label mr-2 text-lg md:text-xl"
           >
-            Password
+            Mot de passe
           </label>
           <input
             onChange={(e) => setPassword(e.target.value)}
@@ -88,7 +88,7 @@ function Login() {
       </form>
       <div>{errorMessage}</div>
       <h1 className="text-lg md:text-xl">
-        Rejoins-nous pour haïr ensemble les alergènes.
+        Rejoins-nous pour haïr ensemble les allergènes.
       </h1>
       <div>
         <button

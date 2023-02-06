@@ -37,22 +37,25 @@ function SignUp() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <form onSubmit={handleForm} className="m-auto mt-5">
-        <div className="mb-3">
+    <div className="h-screen w-full">
+      <form
+        onSubmit={handleForm}
+        className="flex flex-col items-center justify-center mt-5 w-6/6"
+      >
+        <div className="mb-3 w-6/6">
           <label htmlFor="firstname" className="form-label">
-            First Name
+            Prénom
           </label>
           <input
             onChange={(e) => setFirstname(e.target.value)}
             type="firstname"
-            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg"
+            className="form-control flex flex-col items-center justify-center mb-8 border-2 border-black rounded-lg w-6/6"
             id="firstname"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 w-6/6">
           <label htmlFor="lastname" className="form-label">
-            Lastname
+            Nom
           </label>
           <input
             onChange={(e) => setLastname(e.target.value)}
@@ -61,9 +64,9 @@ function SignUp() {
             id="lastname"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 w-6/6">
           <label htmlFor="city" className="form-label">
-            City
+            Ville
           </label>
           <input
             onChange={(e) => setCity(e.target.value)}
@@ -72,7 +75,7 @@ function SignUp() {
             id="city"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 w-6/6">
           <label htmlFor="email" className="form-label">
             Email
           </label>
@@ -83,9 +86,9 @@ function SignUp() {
             id="email"
           />
         </div>
-        <div className="mb-3">
+        <div className="mb-3 w-6/6">
           <label htmlFor="password" className="form-label">
-            Password
+            Mot de passe
           </label>
           <input
             onChange={(e) => setPassword(e.target.value)}

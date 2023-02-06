@@ -53,8 +53,8 @@ CREATE TABLE article (
   FOREIGN KEY (user_id) REFERENCES user(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO article (title, content, picture, user_id) VALUES ('chat', 'boule de poils maléfique', 'src/media/cat.jpg', 1),
-('Chien', 'Mon autre super contenu', 'src/media/puppy.jpg', 2);
+INSERT INTO article (title, content, picture, user_id) VALUES ('Chat', 'Boule de poils maléfique', 'src/media/cat.jpg', 1),
+('Chien', 'Mignon mais mortel', 'src/media/puppy.jpg', 2), ('Bouleau', 'Fourberie printanière', 'src/media/bouleau.jpg', 3);
 
 
 /* On reactive la verification des clés étrangères*/
