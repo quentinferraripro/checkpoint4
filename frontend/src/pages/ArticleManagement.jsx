@@ -83,22 +83,22 @@ function ArticleManagement() {
       <UploadImage />
       <div>
         <h1 className="text-center my-3 text-xl md:text-2xl">Articles</h1>
-        <div className="d-flex flex-wrap justify-content-center">
+        <div className="d-flex flex-wrap justify-center items-center">
           {articles.map((article) => (
             <div
-              className="flex flex-col justify-center items-center mb-5 bg-slate-200"
+              className="flex flex-col justify-center items-center mb-5 bg-slate-200 w-40 md:w-96"
               key={article.id}
             >
               <h1 className="text-xl">{article.title}</h1>
               <Link
                 to={`/articles/${article.id}/modify`}
-                className=" mb-1 bg-slate-400 rounded-xl"
+                className=" mb-1 bg-slate-400 rounded-xl w-40 md:w-96 text-center"
               >
                 modifier
               </Link>
               <Link
                 to={`/articles/${article.id}/delete`}
-                className="bg-slate-400 rounded-xl"
+                className="bg-slate-400 rounded-xl w-40 md:w-96 text-center"
               >
                 supprimer
               </Link>

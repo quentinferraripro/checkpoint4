@@ -8,6 +8,7 @@ function ArticleManagement() {
   // eslint-disable-next-line camelcase
   const { token } = useCurrentUserContext();
   const { articleId } = useParams();
+
   // fetch des article
   const fetchTutorials = () => {
     fetch(`http://localhost:5000/api/articles`)
@@ -20,7 +21,8 @@ function ArticleManagement() {
 
   // Pour le delete des articles
 
-  const handleDeleteTutorial = async () => {
+  const handleDeleteTutorial = async (e) => {
+    e.preventDefault();
     fetch(`http://localhost:5000/api/articles/${articleId}`, {
       method: "DELETE",
       headers: {
@@ -41,14 +43,17 @@ function ArticleManagement() {
       <PreviousButton />
       <h1 className="text-3xl mb-10">Gestion des Articles</h1>
 
-      <h1 className="text-2xl mb-5">suppression d'articles</h1>
+      <h1 className="text-2xl mb-5">suppression d'article</h1>
       <div>
         <div className="d-flex flex-wrap justify-content-center">
           {articles.map((article) => (
-            <div className="mb-5 bg-slate-200 rounded-sm" key={article.id}>
+            <div
+              className="mb-5 bg-slate-200 rounded-sm w-40 md:w-96 flex flex-col items-center justify-center"
+              key={article.id}
+            >
               <h1 className="text-xl mb-1">{article.title}</h1>
               <button
-                className="bg-slate-400 rounded-xl"
+                className="bg-slate-400 rounded-xl w-96 hover:scale-110"
                 type="button"
                 onClick={() => {
                   handleDeleteTutorial();

@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useCurrentUserContext } from "../contexts/userContext";
 import PreviousButton from "../components/PreviousButton";
 
 function ArticleModify() {
   const [title, setTitle] = useState("");
-  console.warn(title);
-
-  console.warn("hello");
   const [content, setContent] = useState("");
-  console.warn(content);
   const [articles, setArticles] = useState([]);
+  const navigate = useNavigate();
   console.warn(articles);
   // eslint-disable-next-line camelcase
   const { token } = useCurrentUserContext();
@@ -29,7 +26,8 @@ function ArticleModify() {
     content,
   });
 
-  const handleModifyArticle = () => {
+  const handleModifyArticle = (e) => {
+    e.preventDefault();
     fetch(`http://localhost:5000/api/articles/${articleId}`, {
       method: "PUT",
       headers: {
@@ -40,6 +38,7 @@ function ArticleModify() {
     })
       .then((response) => response.text())
       .then((data) => {
+        navigate("/articles");
         if (data.error) {
           console.warn("error");
         }
@@ -47,14 +46,13 @@ function ArticleModify() {
   };
 
   return (
-    <div>
+    <div className="w-full">
       <div className="flex flex-col h-screen items-center w-full">
         <PreviousButton />
         <h1 className="text-3xl mb-10">Gestion des Articles</h1>
 
-        <h1 className="text-xl">suppression d'articles</h1>
-        <div>
-          <h1 className="text-center my-3 text-xl">Articles</h1>
+        <h1 className="text-xl">Modification d'article</h1>
+        <div className="w-full flex flex-col justify-center items-center">
           <div className="d-flex flex-wrap justify-content-center">
             {articles.map((article) => (
               <div key={article.id}>
@@ -62,7 +60,10 @@ function ArticleModify() {
               </div>
             ))}
           </div>
-          <form className="flex flex-col" onSubmit={handleModifyArticle}>
+          <form
+            className="flex flex-col md:w-4/6"
+            onSubmit={handleModifyArticle}
+          >
             <input
               name={title}
               value={title}
@@ -79,7 +80,10 @@ function ArticleModify() {
               onChange={(e) => setContent(e.target.value)}
               required
             />
-            <button className="bg-slate-400 rounded-xl" type="submit">
+            <button
+              className="bg-slate-400 rounded-xl hover:scale-110"
+              type="submit"
+            >
               modifier
             </button>
           </form>
